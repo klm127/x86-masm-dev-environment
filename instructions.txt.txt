@@ -1,0 +1,38 @@
+----------  Whats in it -----------------
+
+/asm - where you put your .asm files that you want to assemble
+/exe - where .exe files that are produced go
+/intermediate - where .obj files that are produced go
+/irvine - contains the irvine32 library
+/masm - contains the masm assembler
+
+assemble.bat  -  assembles a .asm file in the asm folder as specified by a command line argument, linking it to the irvine library and using the masm assembler
+
+----------  How to use -----------------
+
+1 ) Open this folder in VSCODE
+	eg : cd "Assembly Development Environment"
+	     code .
+
+2 ) Set VSCode terminal to console to disable batch file warnings (optional)
+
+3 ) use the batch file to assemble and run a program. The assembly file is identified without an extension. You can just run it from the VSCode terminal.
+
+	eg : assemble testasm
+
+   The exe file is placed in the /exe folder and runs
+
+---------- Recommendations --------------
+
+This is perfect for testing out stuff in assembly without going through the effort of creating new Visual Studio 2019 projects or adding and removing files from your solution.
+
+The downside is that there's not a lot of debug output. If you're running into problems and need to do more debugging, you should probably switch back to VS2019 and add the .asm file that's giving you problems to a solution and debug it there.
+
+It also doesnt support linking additional libraries, but I don't think we will be using anything besides Irvine in this class.
+
+---------- Credits -----------------
+
+Luke Bates worked out how to assemble using the command line. Those crazy commands like masm\\ml.exe /c /coff /Fo intermediate\\%targ%.obj /I irvine /W3 asm\\%targ%.asm are credit to him.
+
+Karl Miller moved it into directories, made the batch file, and parameterized it with command line arguments.
+
